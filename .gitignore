@@ -8,3 +8,10 @@ Thumbs.db
 #objects
 obj/
 *.o
+
+#executable
+game
+tutorial
+NeHe
+tutorial_*/*
+!tutorial_*/*.c
