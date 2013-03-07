@@ -1,30 +1,14 @@
 CC=cc -Wall
 CFLAGS=
 LDFLAGS= -lglfw -framework OpenGL -framework CoreFoundation -lSOIL
-TUTORIALS = tutorial_1 tutorial_2 tutorial_3 tutorial_4 tutorial_5 tutorial_6 tutorial_7 tutorial_8 tutorial_9 
-TARGETS = $(join $(addsuffix /,$(TUTORIALS)), $(TUTORIALS))
-VPATH=./src/
-ODIR=obj
+TUTORIALS = tutorial_1 tutorial_2 tutorial_3 tutorial_4 tutorial_5 tutorial_6 tutorial_7 tutorial_8 tutorial_9 tutorial_10 
+TARGETS = $(patsubst %,%/run,$(TUTORIALS))
 
-_OBJ=tutorial.o
-OBJ=$(patsubst %,$(ODIR)/%,$(_OBJ))
+all: $(TARGETS)
 
-APP=tutorial
-
-all: $(ODIR) $(APP) $(TARGETS)
-
-$(TUTORIALS)/%:%.c
+%/run : %/*.c
 	$(CC) $(CFLAGS) $(LDFLAGS) $< -o $@
-
-$(APP): $(OBJ) 
-	$(CC) $(LDFLAGS) $^ -o $@
-
-$(ODIR)/%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
-
-$(ODIR):
-	mkdir -p $(ODIR)
 
 .PHONY: clean
 clean:
-	rm -rf $(ODIR)/*.o $(APP) $(TARGETS)
+	rm -rf $(TARGETS)
