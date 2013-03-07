@@ -1,9 +1,8 @@
 CC=cc -Wall
 CFLAGS=
-LDFLAGS= -lglfw -framework OpenGL
-TUTORIALS = tutorial_1 tutorial_2 tutorial_3 tutorial_4 tutorial_5 
+LDFLAGS= -lglfw -framework OpenGL -framework CoreFoundation -lSOIL
+TUTORIALS = tutorial_1 tutorial_2 tutorial_3 tutorial_4 tutorial_5 tutorial_6 
 TARGETS = $(join $(addsuffix /,$(TUTORIALS)), $(TUTORIALS))
-
 VPATH=./src/
 ODIR=obj
 
