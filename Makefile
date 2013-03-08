@@ -1,7 +1,7 @@
 CC=cc -Wall
 CFLAGS=
 LDFLAGS= -lglfw -framework OpenGL -framework CoreFoundation -lSOIL
-TUTORIALS = tutorial_1 tutorial_2 tutorial_3 tutorial_4 tutorial_5 tutorial_6 tutorial_7 tutorial_8 tutorial_9 tutorial_10 
+TUTORIALS = 1 2 3 4 5 6 7 8 9 10 11 
 TARGETS = $(patsubst %,%/run,$(TUTORIALS))
 
 all: $(TARGETS)

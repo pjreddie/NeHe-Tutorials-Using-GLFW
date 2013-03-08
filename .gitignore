@@ -13,6 +13,4 @@ obj/
 game
 tutorial
 NeHe
-tutorial_*/*
-!tutorial_*/*.c
-!tutorial_*/data
+*/run
